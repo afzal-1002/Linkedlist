@@ -46,28 +46,74 @@ public class SinglyLinkedList {
 		}
 
 
+		public  void addLast(Object data)
+		{
+			Node newNode =  new Node(data);
+
+			if(head == null)
+			{
+				head = tail = newNode;
+				return ;
+			}else
+			{
+				tail.next = newNode;
+				tail=newNode;
+			}
+
+		}
+
+
+		public  Node getFirst()
+		{
+			Node temp ;
+			if(head == null)
+			{
+				return null;
+			}else
+			{
+				temp = head;
+				head = temp.next;
+			}
+
+			return (temp);
+		}
+
+
 	}
 
 
 	public static void main(String[] args) {
-		System.out.println("Singly Link List => ");
+		System.out.println("Singly Link List:  ");
 
 		SingleList list = new SingleList();
-		list.addFirst(5);
 		list.addFirst(10);
-		list.addFirst(15);
+		list.addFirst(20);
+		list.addFirst(30);
+		
+		list.addLast(40);
+		list.addLast(50);
+		list.addLast(60);
 
 
-		Node head = list.head;
+		Node temp = list.head;
+		int count = 0 ;
 
 
-
-		while (head != null) {
+		while (temp != null) {
 			
-			System.out.println(head.data);
+			System.out.println("Index position " + count + " => " +  temp.data);
 
-			head = head.next;
+			temp = temp.next;
+			count++;
 		}
+
+		// Node first =  list.getFirst();
+
+		System.out.println("getFirst Node => " + list.getFirst().data);
+		System.out.println("getFirst Node => " + list.getFirst().data);
+
+
+		
 
 	}
 }
