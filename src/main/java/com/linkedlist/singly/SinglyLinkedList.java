@@ -46,7 +46,7 @@ public class SinglyLinkedList {
 		}
 
 
-		public  void addLast(Object data)
+		public  void addLast(Object data)// floorLast
 		{
 			Node newNode =  new Node(data);
 
@@ -63,7 +63,7 @@ public class SinglyLinkedList {
 		}
 
 
-	public  Node getFirst()
+		public  Node getFirst()
 		{
 			Node temp ;
 			if(head == null)
@@ -79,7 +79,7 @@ public class SinglyLinkedList {
 		}
 	
 
-	public  Node getLast()
+		public  Node getLast()
 		{
 			Node temp ;
 			Node lastNode;
@@ -98,6 +98,34 @@ public class SinglyLinkedList {
 			}
 			return (lastNode);
 		}
+
+
+		public  void insertNode(Object data, int pos)
+		{
+			if(pos < 0)
+			{
+				return ;
+			}
+
+			if(pos == 0)
+			{
+				addFirst(data);
+				return ;
+			}else
+			{
+				Node temp = head;
+				int i = 0;
+				while (i < pos - 1 ) {
+					if (temp == null) {
+						return ;
+					}
+						temp = temp.next;
+				}
+				Node node = new Node(data);
+				node.next = temp.next;
+				temp.next = node;
+			}
+		}
 }
 
 
@@ -105,9 +133,9 @@ public class SinglyLinkedList {
 		System.out.println("Singly Link List:  ");
 
 		LinkList linkList = new LinkList();
-		linkList.addFirst(10);
-		linkList.addFirst(20);
 		linkList.addFirst(30);
+		linkList.addFirst(20);
+		linkList.addFirst(10);
 		
 		linkList.addLast(40);
 		linkList.addLast(50);
@@ -136,7 +164,36 @@ public class SinglyLinkedList {
 		System.out.println("getLast Node data => " + linkList.getLast().data);
 
 
+		System.out.println("Setting the Node to specific index: " );
+		
+		// LinkList linkListNew = new LinkList();
+		// linkListNew.addFirst(30);
+		// linkListNew.addFirst(20);
+		// linkListNew.addFirst(10);
+		
+		// linkListNew.addLast(40);
+		// linkListNew.addLast(50);
+		// linkListNew.addLast(60);
 
 
-	}
+		linkList.insertNode(100, 1);
+
+
+		 temp = linkList.head;
+
+		count = 0;
+
+		while (temp != null) {
+			
+			System.out.println("After Setting node Index position " + count + " => " +  temp.data);
+
+			temp = temp.next;
+			count++;
+		}
+
+
+
+
+
+	}	
 }
