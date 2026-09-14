@@ -107,9 +107,7 @@ public class DoublyLinkedList {
 
 public void setNode(Object data, int index) {
 
-    if (index < 0) {
-        return;
-    }
+    if (index < 0) {  return;  }
 
     if (index == 0) {
         addFirst(data);
@@ -125,14 +123,10 @@ public void setNode(Object data, int index) {
     }
 
     Node node = new Node(data);
-
     Node oldNext = temp.next;
-
     temp.next = node;
     node.prev = temp;
-
     node.next = oldNext;
-
     if (oldNext != null) {
         oldNext.prev = node;
     }
