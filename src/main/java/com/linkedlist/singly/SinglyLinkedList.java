@@ -19,12 +19,12 @@ public class SinglyLinkedList {
 		
 	}
 
-	static class SingleList {
+	static class LinkList {
 		
 		Node head;
 		Node tail;
 
-		public SingleList()
+		public LinkList()
 		{
 			head = tail = null;
 		}
@@ -63,7 +63,7 @@ public class SinglyLinkedList {
 		}
 
 
-		public  Node getFirst()
+	public  Node getFirst()
 		{
 			Node temp ;
 			if(head == null)
@@ -75,28 +75,46 @@ public class SinglyLinkedList {
 				head = head.next;
 				temp.next = null;
 			}
-
 			return (temp);
 		}
+	
 
-
-	}
+	public  Node getLast()
+		{
+			Node temp ;
+			Node lastNode;
+			if(head == null)
+			{
+				return null;
+			}else
+			{
+				temp = head;
+				while (temp.next != tail ) {
+					temp = temp.next;
+				}
+				temp.next = null;
+				lastNode = tail;
+				tail= temp;
+			}
+			return (lastNode);
+		}
+}
 
 
 	public static void main(String[] args) {
 		System.out.println("Singly Link List:  ");
 
-		SingleList list = new SingleList();
-		list.addFirst(10);
-		list.addFirst(20);
-		list.addFirst(30);
+		LinkList linkList = new LinkList();
+		linkList.addFirst(10);
+		linkList.addFirst(20);
+		linkList.addFirst(30);
 		
-		list.addLast(40);
-		list.addLast(50);
-		list.addLast(60);
+		linkList.addLast(40);
+		linkList.addLast(50);
+		linkList.addLast(60);
 
 
-		Node temp = list.head;
+		Node temp = linkList.head;
 		int count = 0 ;
 
 
@@ -110,9 +128,12 @@ public class SinglyLinkedList {
 
 		// Node first =  list.getFirst();
 
-		System.out.println("getFirst Node => " + list.getFirst().data);
-		System.out.println("getFirst Node => " + list.getFirst().data);
-		System.out.println("getFirst Node next => " + list.getFirst().next);
+		System.out.println("getFirst Node => " + linkList.getFirst().data);
+		System.out.println("getFirst Node => " + linkList.getFirst().data);
+		System.out.println("getFirst Node next => " + linkList.getFirst().next);
+
+
+		System.out.println("getLast Node data => " + linkList.getLast().data);
 
 
 
