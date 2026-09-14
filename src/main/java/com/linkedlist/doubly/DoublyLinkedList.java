@@ -105,32 +105,43 @@ public class DoublyLinkedList {
 		}
 
 
-public void setNode(Object data, int index) {
+		public void setNode(Object data, int index) {
 
-    if (index < 0) {  return;  }
+			if (index < 0) {  return;  }
 
-    if (index == 0) {
-        addFirst(data);
-        return;
-    }
+			if (index == 0) {
+				addFirst(data);
+				return;
+			}
 
-    Node temp = head;
-    int count = 0;
+			Node temp = head;
+			int count = 0;
 
-    while (count != index - 1) {
-        temp = temp.next;
-        count++;
-    }
+			while (count != index - 1) {
+				temp = temp.next;
+				count++;
+			}
 
-    Node node = new Node(data);
-    Node oldNext = temp.next;
-    temp.next = node;
-    node.prev = temp;
-    node.next = oldNext;
-    if (oldNext != null) {
-        oldNext.prev = node;
-    }
-}
+			Node node = new Node(data);
+			Node oldNext = temp.next;
+			temp.next = node;
+			node.prev = temp;
+			node.next = oldNext;
+			if (oldNext != null) {
+				oldNext.prev = node;
+			}
+		}
+
+		public  void  printLinkList()
+		{
+			Node temp = head;
+			int index = 0;
+			while (temp != null) {
+				System.out.println("Doubly link list index pos =   " + index + " value  = " + temp.data);
+				index++;
+				temp =  temp.next;
+			}
+		}
 
 }
 
@@ -145,14 +156,7 @@ public void setNode(Object data, int index) {
 			linkedList.addFirst(2);
 			linkedList.addFirst(3);
 
-			Node temp = linkedList.head;
-
-			int index = 0;
-			while (temp != null) {
-				System.out.println(" index   " + index + " value  = " + temp.data);
-				temp = 	temp.next;
-				index++;
-			}
+			linkedList.printLinkList();
 
 			
 
@@ -162,44 +166,22 @@ public void setNode(Object data, int index) {
 			linkedList.addLast(6);
 			linkedList.addLast(7);
 
-			temp = linkedList.head;
-			index = 0;
-			while (temp != null) {
-				System.out.println(" index   " + index + " value  = " + temp.data);
-				temp = 	temp.next;
-				index++;
-			}
-			
+			linkedList.printLinkList();
 
 			System.out.println("getFirst = " + linkedList.getFirst().data );
 			System.out.println("getLast = " + linkedList.getLast().data );
-			System.out.println("Contains = " + linkedList.contains(1) );
+			System.out.println("Contains = " + linkedList.contains(2) );
 
-			System.out.println("Before Setting the node at 1 value 33");
+			System.out.println("Before Setting the node at 1 value 3");
 
-			temp = linkedList.head;
-			index = 0;
-			while (temp != null) {
-				System.out.println(" index   " + index + " value  = " + temp.data);
-				temp = 	temp.next;
-				index++;
-			}
-			
+			linkedList.printLinkList();
 
 
+			System.out.println("Setting the node at 1 value 3");
 
-			System.out.println("Setting the node at 1 value 33");
+			linkedList.setNode(3, 1);
 
-			linkedList.setNode(33, 1);
-
-			temp = linkedList.head;
-			index = 0;
-			while (temp != null) {
-				System.out.println(" index   " + index + " value  = " + temp.data);
-				temp = 	temp.next;
-				index++;
-			}
-			
+			linkedList.printLinkList();
 
 	}
 	
