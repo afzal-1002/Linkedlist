@@ -72,7 +72,8 @@ public class SinglyLinkedList {
 			}else
 			{
 				temp = head;
-				head = temp.next;
+				head = head.next;
+				temp.next = null;
 			}
 
 			return (temp);
@@ -111,9 +112,10 @@ public class SinglyLinkedList {
 
 		System.out.println("getFirst Node => " + list.getFirst().data);
 		System.out.println("getFirst Node => " + list.getFirst().data);
+		System.out.println("getFirst Node next => " + list.getFirst().next);
 
 
-		
+
 
 	}
 }
